@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="800" height="620" font-family="Segoe UI, Arial, sans-serif">
+
+  <rect width="800" height="620" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#111111" letter-spacing="0.3">Azure Windows Infrastructure Lab (Hybrid Architecture)</text>
+  <line x1="40" y1="44" x2="760" y2="44" stroke="#000000" stroke-width="0.75"/>
+
+  <!-- On-premises boundary -->
+  <rect x="30" y="60" width="290" height="430" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1" stroke-dasharray="7 4"/>
+  <rect x="50" y="50" width="130" height="18" fill="#ffffff"/>
+  <text x="115" y="63" text-anchor="middle" font-size="11" font-weight="600" fill="#000000" letter-spacing="0.5">ON-PREMISES</text>
+
+  <!-- VM box -->
+  <rect x="55" y="80" width="240" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="55" y1="100" x2="295" y2="100" stroke="#000000" stroke-width="0.75"/>
+  <text x="175" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">vm-infra-01</text>
+  <text x="175" y="116" text-anchor="middle" font-size="10" fill="#000000">Windows Server 2022 Server Core</text>
+  <text x="175" y="130" text-anchor="middle" font-size="10" fill="#000000">VirtualBox (bridged adapter)</text>
+
+  <!-- AD box -->
+  <rect x="55" y="165" width="240" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="55" y1="185" x2="295" y2="185" stroke="#000000" stroke-width="0.75"/>
+  <text x="175" y="179" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Active Directory</text>
+  <text x="175" y="201" text-anchor="middle" font-size="10" fill="#000000">Domain: infra.lab</text>
+  <text x="175" y="215" text-anchor="middle" font-size="10" fill="#000000">OUs: Servers, Workstations, LabUsers</text>
+
+  <!-- Arc agent box -->
+  <rect x="55" y="250" width="240" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="55" y1="270" x2="295" y2="270" stroke="#000000" stroke-width="0.75"/>
+  <text x="175" y="264" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Azure Arc Agent (himds)</text>
+  <text x="175" y="286" text-anchor="middle" font-size="10" fill="#000000">Hybrid Instance Metadata Service</text>
+  <text x="175" y="300" text-anchor="middle" font-size="10" fill="#000000">Maintains Azure connection</text>
+
+  <!-- Health check box -->
+  <rect x="55" y="335" width="240" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="55" y1="355" x2="295" y2="355" stroke="#000000" stroke-width="0.75"/>
+  <text x="175" y="349" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Health Check Script</text>
+  <text x="175" y="371" text-anchor="middle" font-size="10" fill="#000000">PowerShell (runs locally on VM)</text>
+  <text x="175" y="385" text-anchor="middle" font-size="10" fill="#000000">Disk, memory, AD services, event log</text>
+
+  <!-- GPO box -->
+  <rect x="55" y="420" width="240" height="50" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="55" y1="438" x2="295" y2="438" stroke="#000000" stroke-width="0.75"/>
+  <text x="175" y="432" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Group Policy (GPO)</text>
+  <text x="175" y="454" text-anchor="middle" font-size="10" fill="#000000">Infra-Baseline (linked to infra.lab)</text>
+
+  <!-- Azure Arc arrow -->
+  <line x1="296" y1="280" x2="384" y2="280" stroke="#000000" stroke-width="1.25" marker-end="url(#arr)"/>
+  <rect x="302" y="262" width="76" height="16" fill="#ffffff"/>
+  <text x="340" y="274" text-anchor="middle" font-size="10" font-weight="600" fill="#000000">Azure Arc</text>
+
+  <!-- Azure boundary -->
+  <rect x="390" y="60" width="370" height="510" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1" stroke-dasharray="7 4"/>
+  <rect x="410" y="50" width="60" height="18" fill="#ffffff"/>
+  <text x="440" y="63" text-anchor="middle" font-size="11" font-weight="600" fill="#000000" letter-spacing="0.5">AZURE</text>
+
+  <!-- Arc resource -->
+  <rect x="415" y="80" width="320" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="415" y1="100" x2="735" y2="100" stroke="#000000" stroke-width="0.75"/>
+  <text x="575" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Arc-Enabled Server Resource</text>
+  <text x="575" y="116" text-anchor="middle" font-size="10" fill="#000000">vm-infra-01 (Status: Connected)</text>
+  <text x="575" y="130" text-anchor="middle" font-size="10" fill="#000000">Resource group: rg-infra-lab</text>
+
+  <!-- DCR -->
+  <rect x="415" y="165" width="320" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="415" y1="185" x2="735" y2="185" stroke="#000000" stroke-width="0.75"/>
+  <text x="575" y="179" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Data Collection Rule</text>
+  <text x="575" y="201" text-anchor="middle" font-size="10" fill="#000000">dcr-infra-lab (Perf counters + Windows events)</text>
+  <text x="575" y="215" text-anchor="middle" font-size="10" fill="#000000">Associated to vm-infra-01 via dcra-infra-vm</text>
+
+  <!-- Log Analytics -->
+  <rect x="415" y="250" width="320" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="415" y1="270" x2="735" y2="270" stroke="#000000" stroke-width="0.75"/>
+  <text x="575" y="264" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Log Analytics Workspace</text>
+  <text x="575" y="286" text-anchor="middle" font-size="10" fill="#000000">law-infra-lab (East US 2)</text>
+  <text x="575" y="300" text-anchor="middle" font-size="10" fill="#000000">Receives Perf + SecurityEvent data</text>
+
+  <!-- Alert rules -->
+  <rect x="415" y="335" width="320" height="60" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="415" y1="355" x2="735" y2="355" stroke="#000000" stroke-width="0.75"/>
+  <text x="575" y="349" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">KQL Scheduled Alert Rules</text>
+  <text x="575" y="371" text-anchor="middle" font-size="10" fill="#000000">alert-high-cpu / alert-low-disk</text>
+  <text x="575" y="385" text-anchor="middle" font-size="10" fill="#000000">Queries law-infra-lab every 5-15 min</text>
+
+  <!-- Action group -->
+  <rect x="415" y="420" width="320" height="50" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.25"/>
+  <line x1="415" y1="438" x2="735" y2="438" stroke="#000000" stroke-width="0.75"/>
+  <text x="575" y="432" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Action Group</text>
+  <text x="575" y="454" text-anchor="middle" font-size="10" fill="#000000">ag-infra-lab (email notification on alert)</text>
+
+  <!-- Terraform box -->
+  <rect x="415" y="490" width="320" height="50" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1" stroke-dasharray="5 3"/>
+  <line x1="415" y1="508" x2="735" y2="508" stroke="#000000" stroke-width="0.5" stroke-dasharray="5 3"/>
+  <text x="575" y="502" text-anchor="middle" font-size="11" font-weight="700" fill="#000000">Terraform (IaC)</text>
+  <text x="575" y="524" text-anchor="middle" font-size="10" fill="#000000">Manages all Azure resources (main.tf)</text>
+
+  <!-- Azure internal arrows -->
+  <line x1="575" y1="140" x2="575" y2="163" stroke="#000000" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="575" y1="225" x2="575" y2="248" stroke="#000000" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="575" y1="310" x2="575" y2="333" stroke="#000000" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="575" y1="395" x2="575" y2="418" stroke="#000000" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="575" y1="470" x2="575" y2="488" stroke="#000000" stroke-width="0.75" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <line x1="40" y1="572" x2="760" y2="572" stroke="#000000" stroke-width="0.5"/>
+  <text x="400" y="587" text-anchor="middle" font-size="9" fill="#000000">Solid boundary = logical grouping. Dashed boundary = infrastructure boundary. Dashed box = IaC managed.</text>
+  <text x="400" y="600" text-anchor="middle" font-size="9" fill="#000000">Figure 1 (Azure Windows Infrastructure Lab hybrid architecture)</text>
+
+</svg>
